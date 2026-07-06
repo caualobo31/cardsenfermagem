@@ -276,24 +276,6 @@
   .urgency .pulse{width:8px;height:8px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 0 rgba(222,83,64,.6);animation:pulse 1.8s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(222,83,64,.55)}70%{box-shadow:0 0 0 8px rgba(222,83,64,0)}100%{box-shadow:0 0 0 0 rgba(222,83,64,0)}}
 
-  /* ---------- STICKY MOBILE CTA ---------- */
-  .sticky-cta{
-    display:none;position:fixed;left:0;right:0;bottom:0;z-index:50;
-    background:var(--white);border-top:1px solid var(--line);
-    box-shadow:0 -12px 28px -14px rgba(16,36,31,.3);
-    padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
-    transform:translateY(100%);transition:transform .25s ease;
-  }
-  .sticky-cta.visible{transform:translateY(0)}
-  .sticky-inner{display:flex;align-items:center;gap:12px;max-width:var(--maxw);margin:0 auto}
-  .sticky-info{flex-shrink:0;line-height:1.15}
-  .sticky-price{font-family:var(--font-display);font-weight:800;font-size:19px;color:var(--ink);display:block}
-  .sticky-label{font-family:var(--font-mono);font-size:10px;color:var(--ink-soft);white-space:nowrap}
-  .sticky-cta .cta{flex:1;padding:13px 16px;font-size:15px;border-radius:12px;box-shadow:none}
-  @media (max-width:860px){
-    .sticky-cta{display:block}
-  }
-
   footer{background:var(--ink);color:#8A9A92;text-align:center;padding:36px 0;font-size:13px}
   footer strong{color:#EAF1EC;font-family:var(--font-display)}
   footer p{max-width:56ch;margin:10px auto 0;line-height:1.5}
@@ -573,16 +555,6 @@
   <p>Material de apoio ao estudo e à prática de enfermagem. Não substitui protocolo institucional, prescrição médica ou orientação profissional.</p>
 </footer>
 
-<div class="sticky-cta" id="stickyCta">
-  <div class="sticky-inner">
-    <div class="sticky-info">
-      <span class="sticky-price">R$ 27</span>
-      <span class="sticky-label">+135 cards + bônus</span>
-    </div>
-    <a href="#oferta" class="cta">Quero meus cards →</a>
-  </div>
-</div>
-
 <script>
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
@@ -590,24 +562,6 @@
   document.querySelectorAll('section .wrap > *, .versus, .modgrid, .proofgrid, .bonlist, .offercard, .guarantee').forEach(el=>{
     el.classList.add('reveal'); io.observe(el);
   });
-
-  const stickyCta = document.getElementById('stickyCta');
-  const heroEl = document.querySelector('.hero');
-  const footerEl = document.querySelector('footer');
-  const offerEl = document.querySelector('.offercard');
-  let heroVisible = true, footerVisible = false, offerVisible = false;
-  const updateSticky = () => stickyCta.classList.toggle('visible', !heroVisible && !footerVisible && !offerVisible);
-  const stickyObserver = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.target === heroEl) heroVisible = e.isIntersecting;
-      if(e.target === footerEl) footerVisible = e.isIntersecting;
-      if(e.target === offerEl) offerVisible = e.isIntersecting;
-    });
-    updateSticky();
-  },{threshold:0});
-  stickyObserver.observe(heroEl);
-  stickyObserver.observe(footerEl);
-  stickyObserver.observe(offerEl);
 </script>
 </body>
 </html>
