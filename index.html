@@ -228,9 +228,10 @@
     background:var(--coral-tint);border:1.5px dashed var(--coral);border-radius:12px;
     padding:15px 16px;margin-bottom:24px;display:flex;gap:12px;align-items:flex-start;
   }
-  .bump input{margin-top:3px;width:18px;height:18px;accent-color:var(--coral);flex-shrink:0}
-  .bump .bt{font-weight:700;font-size:14.5px;color:var(--ink)}
-  .bump .bd{font-size:13px;color:var(--ink-soft);margin-top:3px}
+  .bump input{margin-top:3px;width:20px;height:20px;accent-color:var(--coral);flex-shrink:0}
+  .bump > span{display:block;flex:1}
+  .bump .bt{display:block;font-weight:700;font-size:14.5px;color:var(--ink)}
+  .bump .bd{display:block;font-size:13px;color:var(--ink-soft);margin-top:4px}
   .bump .bp{font-family:var(--font-mono);font-weight:700;color:var(--coral);font-size:13px}
   .priceblock{text-align:center;margin-bottom:22px}
   .anchor{font-family:var(--font-mono);color:var(--ink-soft);text-decoration:line-through;font-size:16px}
@@ -275,6 +276,24 @@
   .urgency .pulse{width:8px;height:8px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 0 rgba(222,83,64,.6);animation:pulse 1.8s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(222,83,64,.55)}70%{box-shadow:0 0 0 8px rgba(222,83,64,0)}100%{box-shadow:0 0 0 0 rgba(222,83,64,0)}}
 
+  /* ---------- STICKY MOBILE CTA ---------- */
+  .sticky-cta{
+    display:none;position:fixed;left:0;right:0;bottom:0;z-index:50;
+    background:var(--white);border-top:1px solid var(--line);
+    box-shadow:0 -12px 28px -14px rgba(16,36,31,.3);
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
+    transform:translateY(100%);transition:transform .25s ease;
+  }
+  .sticky-cta.visible{transform:translateY(0)}
+  .sticky-inner{display:flex;align-items:center;gap:12px;max-width:var(--maxw);margin:0 auto}
+  .sticky-info{flex-shrink:0;line-height:1.15}
+  .sticky-price{font-family:var(--font-display);font-weight:800;font-size:19px;color:var(--ink);display:block}
+  .sticky-label{font-family:var(--font-mono);font-size:10px;color:var(--ink-soft);white-space:nowrap}
+  .sticky-cta .cta{flex:1;padding:13px 16px;font-size:15px;border-radius:12px;box-shadow:none}
+  @media (max-width:860px){
+    .sticky-cta{display:block}
+  }
+
   footer{background:var(--ink);color:#8A9A92;text-align:center;padding:36px 0;font-size:13px}
   footer strong{color:#EAF1EC;font-family:var(--font-display)}
   footer p{max-width:56ch;margin:10px auto 0;line-height:1.5}
@@ -301,7 +320,11 @@
   }
   @media (max-width:480px){
     .wrap{padding:0 18px}
-    .modgrid{grid-template-columns:1fr}
+    .modgrid{grid-template-columns:1fr 1fr;gap:10px}
+    .mod{padding:14px}
+    .mod h3{font-size:15.5px}
+    .mod p{font-size:12.5px}
+    .mod .cnt{font-size:11px}
     .cta{width:100%;font-size:18px;padding:18px 22px}
     .hero-cta-row{align-items:stretch}
     .price{font-size:44px}
@@ -339,7 +362,7 @@
   <div class="wrap">
     <span class="eyebrow">Por que card</span>
     <h2>Livro grosso não te salva na hora H.</h2>
-    <p class="lead">No estágio, no plantão ou na véspera da prova, ninguém tem tempo de garimpar informação em 400 páginas. O que salva é ter a informação certa, pronta, na palma da mão.</p>
+    <p class="lead">No estágio, no plantão ou na véspera da prova, o que salva é ter a resposta certa na palma da mão.</p>
     <div class="versus">
       <div class="vbox old">
         <div class="vtag">O jeito antigo</div>
@@ -372,18 +395,18 @@
       <span class="eyebrow" style="justify-content:center">O que tem dentro</span>
       <h2 class="big">+135 cards cobrindo o que mais cai e o que mais trava</h2>
     </div>
-    <p class="sec-sub center" style="margin-left:auto;margin-right:auto">Organizados por módulo, do básico ao que você precisa no campo. Você não estuda tudo de novo — vai direto no que precisa.</p>
+    <p class="sec-sub center" style="margin-left:auto;margin-right:auto">Organizados por módulo, do básico ao campo. Vai direto no que precisa, sem estudar tudo de novo.</p>
 
     <div class="modgrid" style="text-align:left">
-      <div class="mod"><div class="modbar"></div><span class="cnt">+40 cards</span><h3>Farmacologia</h3><p>Os medicamentos mais usados: uso, classe, mecanismo e cuidados de enfermagem.</p></div>
-      <div class="mod"><div class="modbar"></div><span class="cnt">18 cards</span><h3>Sinais vitais &amp; escalas</h3><p>Valores normais, escala de dor, Glasgow, Braden, Morse — prontos pra consultar.</p></div>
-      <div class="mod"><div class="modbar"></div><span class="cnt">14 cards</span><h3>Cálculo de medicação</h3><p>Gotejamento, diluição e regra de três resolvidos passo a passo. O terror, destravado.</p></div>
-      <div class="mod"><div class="modbar"></div><span class="cnt">12 cards</span><h3>Vias de administração</h3><p>ID, SC, IM, EV: ângulo, local, indicação e cuidados em cada uma.</p></div>
-      <div class="mod"><div class="modbar"></div><span class="cnt">16 cards</span><h3>Semiologia &amp; avaliação</h3><p>Anamnese, exame físico e sinais de alerta que você não pode deixar passar.</p></div>
-      <div class="mod"><div class="modbar"></div><span class="cnt">15 cards</span><h3>Urgência &amp; emergência</h3><p>PCR, protocolos rápidos e condutas de primeira hora pra não travar na pressão.</p></div>
-      <div class="mod"><div class="modbar"></div><span class="cnt">12 cards</span><h3>Feridas &amp; curativos</h3><p>Tipos de ferida, coberturas e quando usar cada uma, sem decoreba.</p></div>
-      <div class="mod"><div class="modbar"></div><span class="cnt">10 cards</span><h3>Microbiologia clínica</h3><p>Principais agentes, transmissão e precauções de contato, gotícula e aerossol.</p></div>
-      <div class="mod"><div class="modbar"></div><span class="cnt">+8 cards</span><h3>Siglas de prontuário</h3><p>As abreviaturas que aparecem no plantão e ninguém te explicou — traduzidas.</p></div>
+      <div class="mod"><div class="modbar"></div><span class="cnt">+40 cards</span><h3>Farmacologia</h3><p>Uso, classe, mecanismo e cuidados dos medicamentos mais usados.</p></div>
+      <div class="mod"><div class="modbar"></div><span class="cnt">18 cards</span><h3>Sinais vitais &amp; escalas</h3><p>Valores normais, dor, Glasgow, Braden e Morse — prontos pra consultar.</p></div>
+      <div class="mod"><div class="modbar"></div><span class="cnt">14 cards</span><h3>Cálculo de medicação</h3><p>Gotejamento, diluição e regra de três, passo a passo. O terror, destravado.</p></div>
+      <div class="mod"><div class="modbar"></div><span class="cnt">12 cards</span><h3>Vias de administração</h3><p>ID, SC, IM, EV: ângulo, local e cuidados de cada via.</p></div>
+      <div class="mod"><div class="modbar"></div><span class="cnt">16 cards</span><h3>Semiologia &amp; avaliação</h3><p>Anamnese, exame físico e os sinais de alerta que você não pode perder.</p></div>
+      <div class="mod"><div class="modbar"></div><span class="cnt">15 cards</span><h3>Urgência &amp; emergência</h3><p>PCR, protocolos rápidos e condutas de primeira hora sem travar.</p></div>
+      <div class="mod"><div class="modbar"></div><span class="cnt">12 cards</span><h3>Feridas &amp; curativos</h3><p>Tipos de ferida e coberturas, sem decoreba.</p></div>
+      <div class="mod"><div class="modbar"></div><span class="cnt">10 cards</span><h3>Microbiologia clínica</h3><p>Principais agentes, transmissão e precauções de contato.</p></div>
+      <div class="mod"><div class="modbar"></div><span class="cnt">+8 cards</span><h3>Siglas de prontuário</h3><p>As abreviaturas do plantão, traduzidas.</p></div>
     </div>
   </div>
 </section>
@@ -393,7 +416,7 @@
   <div class="wrap center">
     <span class="eyebrow" style="justify-content:center">Veja um card por dentro</span>
     <h2 class="big">É esse o padrão de todos os +135.</h2>
-    <p class="sec-sub center" style="margin-left:auto;margin-right:auto">Sem parágrafo enrolado. Cada card foi feito pra você bater o olho e lembrar.</p>
+    <p class="sec-sub center" style="margin-left:auto;margin-right:auto">Sem parágrafo enrolado — feito pra bater o olho e lembrar.</p>
     <div class="proofgrid">
       <div class="card">
         <div class="card-head h-coral"><h4>Conceitos de Farmacologia</h4><span class="card-num">08</span></div>
@@ -511,7 +534,7 @@
       <div class="seal">7 DIAS</div>
       <div>
         <h4>Garantia incondicional de 7 dias</h4>
-        <p>Baixa, testa no estágio e na revisão. Se não fizer sentido pra você, é só pedir o reembolso — sem pergunta nenhuma. O risco é todo nosso.</p>
+        <p>Baixa, testa no estágio e na revisão. Se não fizer sentido, é só pedir reembolso — sem perguntas. O risco é nosso.</p>
       </div>
     </div>
   </div>
@@ -539,7 +562,7 @@
   <div class="wrap">
     <div class="urgency"><span class="pulse"></span> Preço de lançamento — sobe em breve</div>
     <h2>Da próxima vez que travar, a resposta vai estar na sua mão.</h2>
-    <p class="subhead">+135 cards, 4 bônus e a tranquilidade de saber onde achar o que você precisa — em segundos.</p>
+    <p class="subhead">+135 cards e 4 bônus — a resposta certa em segundos, sempre que precisar.</p>
     <a href="#oferta" class="cta">Quero meus cards por R$ 27 →</a>
     <p class="microtrust"><span>Acesso imediato</span> · <span>Garantia de 7 dias</span> · <span>Compra segura</span></p>
   </div>
@@ -547,8 +570,18 @@
 
 <footer>
   <strong>Enfermagem de Bolso</strong>
-  <p>Material de apoio ao estudo e à prática de enfermagem. Não substitui protocolos institucionais, prescrição médica ou orientação de profissional habilitado.</p>
+  <p>Material de apoio ao estudo e à prática de enfermagem. Não substitui protocolo institucional, prescrição médica ou orientação profissional.</p>
 </footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-inner">
+    <div class="sticky-info">
+      <span class="sticky-price">R$ 27</span>
+      <span class="sticky-label">+135 cards + bônus</span>
+    </div>
+    <a href="#oferta" class="cta">Quero meus cards →</a>
+  </div>
+</div>
 
 <script>
   const io = new IntersectionObserver((entries)=>{
@@ -557,6 +590,24 @@
   document.querySelectorAll('section .wrap > *, .versus, .modgrid, .proofgrid, .bonlist, .offercard, .guarantee').forEach(el=>{
     el.classList.add('reveal'); io.observe(el);
   });
+
+  const stickyCta = document.getElementById('stickyCta');
+  const heroEl = document.querySelector('.hero');
+  const footerEl = document.querySelector('footer');
+  const offerEl = document.querySelector('.offercard');
+  let heroVisible = true, footerVisible = false, offerVisible = false;
+  const updateSticky = () => stickyCta.classList.toggle('visible', !heroVisible && !footerVisible && !offerVisible);
+  const stickyObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.target === heroEl) heroVisible = e.isIntersecting;
+      if(e.target === footerEl) footerVisible = e.isIntersecting;
+      if(e.target === offerEl) offerVisible = e.isIntersecting;
+    });
+    updateSticky();
+  },{threshold:0});
+  stickyObserver.observe(heroEl);
+  stickyObserver.observe(footerEl);
+  stickyObserver.observe(offerEl);
 </script>
 </body>
 </html>
