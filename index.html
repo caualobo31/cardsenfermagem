@@ -182,36 +182,44 @@
 
   /* ---------- OFFER ---------- */
   .offer{padding-top:70px;padding-bottom:70px}
-  .offercard{
-    max-width:560px;margin:0 auto;background:var(--white);border:1px solid var(--line);
-    border-radius:22px;box-shadow:0 30px 70px -34px rgba(16,36,31,.5);overflow:hidden;
+  .plans{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:920px;margin:0 auto;align-items:start}
+  .plan{
+    background:var(--white);border:1px solid var(--line);border-radius:22px;
+    box-shadow:0 20px 50px -30px rgba(16,36,31,.4);overflow:hidden;
+    display:flex;flex-direction:column;
   }
-  .offertop{background:var(--teal);color:#fff;padding:26px 30px;text-align:center}
-  .offertop .lbl{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#BEEBDA}
-  .offertop h3{color:#fff;font-size:26px;margin-top:6px}
-  .offerbody{padding:30px}
+  .plan.featured{
+    border:2px solid var(--teal);
+    box-shadow:0 30px 70px -30px rgba(16,36,31,.5);
+    transform:scale(1.03);
+  }
+  .plan-badge{
+    background:var(--teal);color:#fff;text-align:center;
+    font-family:var(--font-mono);font-size:11.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:9px 12px;
+  }
+  .plan-top{padding:24px 26px 16px}
+  .plan-top h3{font-size:23px}
+  .plan-sub{font-size:13.5px;color:var(--ink-soft);margin-top:4px}
+  .plan-media{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--teal-tint)}
+  .plan-body{padding:24px 26px 28px;display:flex;flex-direction:column}
   .stack{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:26px}
   .stack li{display:flex;justify-content:space-between;gap:14px;font-size:15px;padding-bottom:12px;border-bottom:1px dashed var(--line)}
   .stack li .n{color:var(--ink);display:flex;gap:9px}
   .stack li .n .ck{color:var(--teal);font-weight:800}
   .stack li .p{font-family:var(--font-mono);font-size:13px;color:var(--ink-soft);white-space:nowrap}
-  .bump{
-    background:var(--coral-tint);border:1.5px dashed var(--coral);border-radius:12px;
-    padding:15px 16px;margin-bottom:24px;display:flex;gap:12px;align-items:flex-start;
-  }
-  .bump input{margin-top:3px;width:20px;height:20px;accent-color:var(--coral);flex-shrink:0}
-  .bump > span{display:block;flex:1}
-  .bump .bt{display:block;font-weight:700;font-size:14.5px;color:var(--ink)}
-  .bump .bd{display:block;font-size:13px;color:var(--ink-soft);margin-top:4px}
-  .bump .bp{font-family:var(--font-mono);font-weight:700;color:var(--coral);font-size:13px}
   .priceblock{text-align:center;margin-bottom:22px}
   .anchor{font-family:var(--font-mono);color:var(--ink-soft);text-decoration:line-through;font-size:16px}
   .price{font-family:var(--font-display);font-weight:800;font-size:52px;letter-spacing:-.03em;color:var(--ink);line-height:1}
   .price small{font-size:22px;vertical-align:super;font-weight:700;margin-right:2px}
   .installment{font-size:13.5px;color:var(--ink-soft);margin-top:6px;font-family:var(--font-mono)}
-  .offercard .cta{width:100%}
+  .plan .cta{width:100%}
+  .plan .cta.secondary{
+    background:transparent;color:var(--ink);box-shadow:none;border:2px solid var(--line);
+  }
+  .plan .cta.secondary:hover{background:var(--paper);transform:translateY(-2px);box-shadow:none}
   .guarantee{
-    display:flex;gap:16px;align-items:center;max-width:560px;margin:26px auto 0;
+    display:flex;gap:16px;align-items:center;max-width:560px;margin:32px auto 0;
     background:var(--teal-tint);border-radius:16px;padding:20px 22px;
   }
   .guarantee .seal{
@@ -270,6 +278,8 @@
     .modgrid{grid-template-columns:1fr 1fr;gap:12px}
     .carousel-track img{height:280px}
     .bonlist{grid-template-columns:1fr}
+    .plans{grid-template-columns:1fr;gap:20px;max-width:420px}
+    .plan.featured{transform:none}
   }
   @media (max-width:480px){
     .wrap{padding:0 18px}
@@ -439,42 +449,57 @@
 <section class="offer" id="oferta">
   <div class="wrap">
     <div class="center" style="margin-bottom:44px">
-      <span class="eyebrow" style="justify-content:center">A oferta</span>
+      <span class="eyebrow" style="justify-content:center"></span>
       <h2 class="big">Tudo isso, por <span class="hl">menos que um lanche</span>.</h2>
     </div>
 
-    <div class="offercard">
-      <div class="offertop">
-        <div class="lbl">Enfermagem de Bolso · Kit completo</div>
-        <h3>+135 Cards + 4 Bônus</h3>
-      </div>
-      <div class="offerbody">
-        <ul class="stack">
-          <li><span class="n"><span class="ck">✓</span> +135 Cards de Enfermagem em PDF</span><span class="p">R$ 67</span></li>
-          <li><span class="n"><span class="ck">✓</span> Cards Extras</span><span class="p">R$ 27</span></li>
-          <li><span class="n"><span class="ck">✓</span> 100 Medicamentos Mais Comuns</span><span class="p">R$ 19</span></li>
-          <li><span class="n"><span class="ck">✓</span> Termos Técnicos de Enfermagem</span><span class="p">R$ 19</span></li>
-          <li><span class="n"><span class="ck">✓</span> Mapas Mentais</span><span class="p">R$ 15</span></li>
-        </ul>
-
-        <label class="bump">
-          <input type="checkbox">
-          <span>
-            <span class="bt">Adicionar: Modo Plantão de Emergência <span class="bp">+ R$ 12</span></span>
-            <span class="bd">Protocolos de PCR, drogas de emergência e condutas de primeira hora em cards de acesso rápido.</span>
-          </span>
-        </label>
-
-        <div class="priceblock">
-          <div class="anchor">de R$ 147</div>
-          <div class="price"><small>R$</small>27</div>
-          <div class="installment">à vista ou 3x de R$ 9,66</div>
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-top">
+          <h3>Essencial</h3>
+          <p class="plan-sub">Pra quem quer só os cards, sem enrolação.</p>
         </div>
+        <!-- TODO: trocar por foto real do plano Essencial -->
+        <img class="plan-media" src="images/plano-essencial.png" alt="Plano Essencial — +135 Cards de Enfermagem">
+        <div class="plan-body">
+          <div class="priceblock">
+            <div class="anchor">de R$ 97</div>
+            <div class="price"><small>R$</small>19</div>
+            <div class="installment">à vista ou 3x de R$ 6,84</div>
+          </div>
+          <ul class="stack">
+            <li><span class="n"><span class="ck">✓</span> +135 Cards de Enfermagem em PDF</span></li>
+          </ul>
+          <a href="#" class="cta secondary">Quero o Essencial <span class="arrow">→</span></a>
+        </div>
+      </div>
 
-        <a href="#" class="cta">Quero meus cards agora →</a>
-        <p class="microtrust center" style="text-align:center">Compra segura · Acesso imediato após o pagamento</p>
+      <div class="plan featured">
+        <div class="plan-badge">Mais escolhido</div>
+        <div class="plan-top">
+          <h3>Completo</h3>
+          <p class="plan-sub">Os cards + todos os bônus, pra não faltar nada.</p>
+        </div>
+        <!-- TODO: trocar por foto real do plano Completo -->
+        <img class="plan-media" src="images/plano-completo.png" alt="Plano Completo — +135 Cards + 4 Bônus">
+        <div class="plan-body">
+          <div class="priceblock">
+            <div class="anchor">de R$ 147</div>
+            <div class="price"><small>R$</small>27</div>
+            <div class="installment">à vista ou 3x de R$ 9,66</div>
+          </div>
+          <ul class="stack">
+            <li><span class="n"><span class="ck">✓</span> +135 Cards de Enfermagem em PDF</span></li>
+            <li><span class="n"><span class="ck">✓</span> Cards Extras</span></li>
+            <li><span class="n"><span class="ck">✓</span> 100 Medicamentos Mais Comuns</span></li>
+            <li><span class="n"><span class="ck">✓</span> Termos Técnicos de Enfermagem</span></li>
+            <li><span class="n"><span class="ck">✓</span> Mapas Mentais</span></li>
+          </ul>
+          <a href="#" class="cta">Quero o Completo <span class="arrow">→</span></a>
+        </div>
       </div>
     </div>
+    <p class="microtrust center" style="text-align:center">Compra segura · Acesso imediato após o pagamento</p>
 
     <div class="guarantee">
       <div class="seal">7 DIAS</div>
@@ -523,7 +548,7 @@
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
   },{threshold:.12});
-  document.querySelectorAll('section .wrap > *, .versus, .modgrid, .carousel, .bonlist, .offercard, .guarantee').forEach(el=>{
+  document.querySelectorAll('section .wrap > *, .versus, .modgrid, .carousel, .bonlist, .plans, .guarantee').forEach(el=>{
     el.classList.add('reveal'); io.observe(el);
   });
 </script>
