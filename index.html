@@ -129,12 +129,9 @@
   }
   .formula b{color:var(--ink)}
 
-  /* hero card stack */
-  .cardstack{position:relative;min-height:340px}
-  .cardstack .card{position:absolute;transition:transform .3s ease}
-  .cs-back{top:0;right:0;width:74%;transform:rotate(4deg);opacity:.96}
-  .cs-mid{top:34px;left:0;width:70%;transform:rotate(-5deg);z-index:2}
-  .cs-front{bottom:0;right:6%;width:76%;z-index:3;box-shadow:0 26px 50px -20px rgba(16,36,31,.5)}
+  /* hero image */
+  .hero-media{display:flex;align-items:center;justify-content:center}
+  .hero-media img{width:100%;max-width:480px;height:auto;display:block}
 
   /* ---------- MECHANISM CONTRAST ---------- */
   .mech{background:var(--ink);color:#EAF1EC}
@@ -294,7 +291,7 @@
     .preheadline{order:1;text-align:center}
     h1.headline{order:2;font-size:36px;text-align:center}
     .subhead{order:3;max-width:none;text-align:center;margin-left:auto;margin-right:auto}
-    .cardstack{order:4;width:100%;min-height:400px;margin-top:8px;max-width:420px}
+    .hero-media{order:4;width:100%;margin-top:8px;max-width:340px}
     .hero-cta-row{order:5;align-items:center}
     .microtrust{text-align:center}
     .versus{grid-template-columns:1fr}
@@ -308,7 +305,6 @@
     .cta{width:100%;font-size:18px;padding:18px 22px}
     .hero-cta-row{align-items:stretch}
     .price{font-size:44px}
-    .cardstack{min-height:430px}
   }
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none}
@@ -332,34 +328,8 @@
       </div>
     </div>
 
-    <!-- SIGNATURE: real clinical cards rendered live -->
-    <div class="cardstack" aria-hidden="true">
-      <div class="card cs-back">
-        <div class="card-head h-violet"><h4>Vias de Administração</h4><span class="card-num">37</span></div>
-        <div class="card-body">
-          <div class="crow"><span class="k">ID</span><span class="v">Testes de pele — PPD, alergia, vacinas. Ângulo 15°.</span></div>
-          <div class="crow"><span class="k">SC</span><span class="v">Absorção lenta — heparina, insulina. Ângulo 45°/90°.</span></div>
-          <div class="crow"><span class="k">IM</span><span class="v">Absorção rápida — antibióticos, analgésicos. 90°.</span></div>
-        </div>
-      </div>
-      <div class="card cs-back" style="display:none"></div>
-      <div class="card cs-mid">
-        <div class="card-head h-teal"><h4>Cálculo de Gotejamento</h4><span class="card-num">52</span></div>
-        <div class="card-body">
-          <div class="formula">gts/min = <b>volume (ml)</b> ÷ (tempo em h × 3)</div>
-          <div class="crow"><span class="k">Micro</span><span class="v">gts/min = volume ÷ tempo(h) — sem dividir por 3.</span></div>
-        </div>
-      </div>
-      <div class="card cs-front">
-        <div class="card-head h-coral"><h4>Escala de Dor</h4><span class="card-num">24</span></div>
-        <div class="card-body">
-          <div class="painscale">
-            <div class="ps0"></div><div class="ps1"></div><div class="ps2"></div><div class="ps3"></div><div class="ps4"></div>
-          </div>
-          <div class="painrow"><span><b>0</b> sem dor</span><span><b>1–3</b> leve</span><span><b>4–6</b> moderada</span><span><b>7–10</b> intensa</span></div>
-          <div class="crow" style="margin-top:8px"><span class="k">Conduta</span><span class="v">Registrar antes e após analgesia. Reavaliar em 30–60 min.</span></div>
-        </div>
-      </div>
+    <div class="hero-media">
+      <img src="images/hero-cards.png" alt="Exemplos dos cards de enfermagem em PDF">
     </div>
   </div>
 </header>
