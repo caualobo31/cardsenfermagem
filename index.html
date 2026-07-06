@@ -290,12 +290,17 @@
   @media (max-width:860px){
     section{padding:52px 0}
     .hero-grid{grid-template-columns:1fr;gap:14px}
-    .cardstack{min-height:400px;margin-top:8px;max-width:420px}
+    .hero-grid > div:first-child{display:contents}
+    .preheadline{order:1;text-align:center}
+    h1.headline{order:2;font-size:36px;text-align:center}
+    .subhead{order:3;max-width:none;text-align:center;margin-left:auto;margin-right:auto}
+    .cardstack{order:4;width:100%;min-height:400px;margin-top:8px;max-width:420px}
+    .hero-cta-row{order:5;align-items:center}
+    .microtrust{text-align:center}
     .versus{grid-template-columns:1fr}
     .modgrid{grid-template-columns:1fr 1fr;gap:12px}
     .proofgrid{grid-template-columns:1fr;max-width:360px;margin-left:auto;margin-right:auto}
     .bonlist{grid-template-columns:1fr}
-    .subhead{max-width:none}
   }
   @media (max-width:480px){
     .wrap{padding:0 18px}
