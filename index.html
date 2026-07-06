@@ -89,50 +89,24 @@
   }
   .hero-cta-row{display:flex;flex-direction:column;align-items:flex-start;gap:0}
 
-  /* ---------- CLINICAL CARD (signature element) ---------- */
-  .card{
-    background:var(--white);border-radius:16px;border:1px solid var(--line);
-    box-shadow:0 18px 40px -22px rgba(16,36,31,.4);overflow:hidden;
-    width:100%;
-  }
-  .card-head{
-    padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;
-  }
-  .card-head h4{
-    font-family:var(--font-display);font-weight:700;font-size:15.5px;color:#fff;
-    text-transform:uppercase;letter-spacing:.02em;line-height:1.05;
-  }
-  .card-num{
-    font-family:var(--font-mono);font-weight:700;font-size:13px;color:#fff;
-    background:rgba(255,255,255,.22);border-radius:7px;padding:3px 8px;flex-shrink:0;
-  }
-  .card-body{padding:15px 16px 17px}
-  .h-teal{background:var(--teal)}
-  .h-coral{background:var(--coral)}
-  .h-violet{background:var(--violet)}
-  .h-amber{background:var(--amber)}
-
-  /* pain scale card visual */
-  .painscale{display:flex;gap:5px;margin:4px 0 10px}
-  .painscale div{flex:1;height:11px;border-radius:3px}
-  .ps0{background:#4CAF7A}.ps1{background:#8CC152}.ps2{background:#E8C13D}.ps3{background:#E8863D}.ps4{background:var(--coral)}
-  .painrow{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:11px;color:var(--ink-soft)}
-  .painrow b{color:var(--ink);font-weight:700}
-
-  /* generic clinical rows */
-  .crow{display:flex;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:13.5px}
-  .crow:last-child{border-bottom:none}
-  .crow .k{font-family:var(--font-mono);font-weight:700;color:var(--teal-deep);font-size:11.5px;text-transform:uppercase;letter-spacing:.03em;min-width:78px;padding-top:1px}
-  .crow .v{color:var(--ink);flex:1}
-  .formula{
-    font-family:var(--font-mono);font-size:13px;background:var(--teal-tint);color:var(--teal-deep);
-    border-radius:9px;padding:11px 13px;margin-top:4px;text-align:center;font-weight:500;
-  }
-  .formula b{color:var(--ink)}
-
   /* hero image */
   .hero-media{display:flex;align-items:center;justify-content:center}
   .hero-media img{width:100%;max-width:480px;height:auto;display:block}
+
+  /* ---------- PROOF CAROUSEL ---------- */
+  .proof{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0;overflow:hidden}
+  .carousel{
+    margin-top:36px;overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  }
+  .carousel-track{display:flex;gap:20px;width:max-content;animation:carousel-scroll 32s linear infinite}
+  .carousel:hover .carousel-track{animation-play-state:paused}
+  .carousel-track img{
+    height:360px;width:auto;flex-shrink:0;border-radius:16px;border:1px solid var(--line);
+    background:var(--white);box-shadow:0 18px 40px -22px rgba(16,36,31,.4);
+  }
+  @keyframes carousel-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* ---------- MECHANISM CONTRAST ---------- */
   .mech{background:var(--ink);color:#EAF1EC}
@@ -176,10 +150,6 @@
   .mod:nth-child(3n+1) .modbar{background:var(--coral)}
   .mod:nth-child(3n+2) .modbar{background:var(--teal)}
   .mod:nth-child(3n) .modbar{background:var(--violet)}
-
-  /* ---------- PROOF (see a card) ---------- */
-  .proof{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .proofgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;align-items:start}
 
   /* ---------- FOR WHOM ---------- */
   .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;justify-content:center}
@@ -298,7 +268,7 @@
     .microtrust{text-align:center}
     .versus{grid-template-columns:1fr}
     .modgrid{grid-template-columns:1fr 1fr;gap:12px}
-    .proofgrid{grid-template-columns:1fr;max-width:360px;margin-left:auto;margin-right:auto}
+    .carousel-track img{height:280px}
     .bonlist{grid-template-columns:1fr}
   }
   @media (max-width:480px){
@@ -311,9 +281,11 @@
     .cta{width:100%;font-size:18px;padding:18px 22px}
     .hero-cta-row{align-items:stretch}
     .price{font-size:44px}
+    .carousel-track img{height:220px}
   }
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none}
+    .carousel-track{animation:none}
     .pulse{animation:none}
     *{scroll-behavior:auto}
   }
@@ -326,7 +298,7 @@
   <div class="wrap hero-grid">
     <div>
       <p class="preheadline">Toda a enfermagem que você precisa lembrar, sem folhear 400 páginas.</p>
-      <h1 class="headline"><span class="plus">+135 Cards</span> de Enfermagem para trocar horas de leitura por minutos de revisão</h1>
+      <h1 class="headline"><span class="plus">+135 Cards de Enfermagem</span> para trocar horas de leitura por minutos de revisão</h1>
       <p class="subhead">A matéria inteira destilada em cards de bolso.</p>
       <div class="hero-cta-row">
         <a href="#oferta" class="cta">Quero meus cards agora <span class="arrow">→</span></a>
@@ -339,6 +311,31 @@
     </div>
   </div>
 </header>
+
+<!-- ============ PROOF: SEE THE MATERIAL ============ -->
+<section class="proof">
+  <div class="wrap center">
+    <span class="eyebrow" style="justify-content:center">Veja o material por dentro</span>
+    <h2 class="big">Cards práticos para qualquer situação:</h2>
+    <p class="sec-sub center" style="margin-left:auto;margin-right:auto">feito para bater o olho e lembrar</p>
+  </div>
+  <div class="carousel">
+    <div class="carousel-track">
+      <img src="images/carrossel/card-01.jpg" alt="Exemplo de card de enfermagem 1">
+      <img src="images/carrossel/card-02.jpg" alt="Exemplo de card de enfermagem 2">
+      <img src="images/carrossel/card-03.jpg" alt="Exemplo de card de enfermagem 3">
+      <img src="images/carrossel/card-04.jpg" alt="Exemplo de card de enfermagem 4">
+      <img src="images/carrossel/card-05.jpg" alt="Exemplo de card de enfermagem 5">
+      <img src="images/carrossel/card-06.jpg" alt="Exemplo de card de enfermagem 6">
+      <img src="images/carrossel/card-01.jpg" alt="" aria-hidden="true">
+      <img src="images/carrossel/card-02.jpg" alt="" aria-hidden="true">
+      <img src="images/carrossel/card-03.jpg" alt="" aria-hidden="true">
+      <img src="images/carrossel/card-04.jpg" alt="" aria-hidden="true">
+      <img src="images/carrossel/card-05.jpg" alt="" aria-hidden="true">
+      <img src="images/carrossel/card-06.jpg" alt="" aria-hidden="true">
+    </div>
+  </div>
+</section>
 
 <!-- ============ MECHANISM ============ -->
 <section class="mech">
@@ -376,7 +373,7 @@
   <div class="wrap center">
     <div class="sec-head" style="display:inline-block">
       <span class="eyebrow" style="justify-content:center">O que tem dentro</span>
-      <h2 class="big">+135 cards cobrindo <span class="hl">o que mais cai e o que mais trava</span></h2>
+      <h2 class="big">+135 cards cobrindo <span class="hl"> o que mais trava</span></h2>
     </div>
     <p class="sec-sub center" style="margin-left:auto;margin-right:auto">Organizados por módulo, do básico ao campo. Vai direto no que precisa, sem estudar tudo de novo.</p>
 
@@ -390,42 +387,6 @@
       <div class="mod"><div class="modbar"></div><span class="cnt">12 cards</span><h3>Feridas &amp; curativos</h3><p>Tipos de ferida e coberturas, sem decoreba.</p></div>
       <div class="mod"><div class="modbar"></div><span class="cnt">10 cards</span><h3>Microbiologia clínica</h3><p>Principais agentes, transmissão e precauções de contato.</p></div>
       <div class="mod"><div class="modbar"></div><span class="cnt">+8 cards</span><h3>Siglas de prontuário</h3><p>As abreviaturas do plantão, traduzidas.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PROOF: SEE A CARD ============ -->
-<section class="proof">
-  <div class="wrap center">
-    <span class="eyebrow" style="justify-content:center">Veja um card por dentro</span>
-    <h2 class="big">É esse o padrão de todos os <span class="hl">+135</span>.</h2>
-    <p class="sec-sub center" style="margin-left:auto;margin-right:auto">Sem parágrafo enrolado — feito pra bater o olho e lembrar.</p>
-    <div class="proofgrid">
-      <div class="card">
-        <div class="card-head h-coral"><h4>Conceitos de Farmacologia</h4><span class="card-num">08</span></div>
-        <div class="card-body">
-          <div class="crow"><span class="k">Fármaco</span><span class="v">Substância que produz mudança no organismo — prevenção, diagnóstico ou tratamento.</span></div>
-          <div class="crow"><span class="k">Princípio</span><span class="v">Componente responsável pelo efeito terapêutico.</span></div>
-          <div class="crow"><span class="k">Dose</span><span class="v">Quantidade de medicamento administrada de uma vez.</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head h-teal"><h4>Sinais Vitais — Normais</h4><span class="card-num">21</span></div>
-        <div class="card-body">
-          <div class="crow"><span class="k">FC</span><span class="v">60–100 bpm (adulto em repouso)</span></div>
-          <div class="crow"><span class="k">FR</span><span class="v">12–20 irpm</span></div>
-          <div class="crow"><span class="k">PA</span><span class="v">120 × 80 mmHg de referência</span></div>
-          <div class="crow"><span class="k">Temp</span><span class="v">36 – 37,4 °C · SatO₂ ≥ 95%</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head h-violet"><h4>Insulina Glargina</h4><span class="card-num">61</span></div>
-        <div class="card-body">
-          <div class="crow"><span class="k">Uso</span><span class="v">Diabetes tipo 1 e 2 — ação longa.</span></div>
-          <div class="crow"><span class="k">Cuidado</span><span class="v">Não misturar com outras insulinas. Rodízio de local.</span></div>
-          <div class="crow"><span class="k">Alerta</span><span class="v">Observar sinais de hipoglicemia.</span></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -560,7 +521,7 @@
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
   },{threshold:.12});
-  document.querySelectorAll('section .wrap > *, .versus, .modgrid, .proofgrid, .bonlist, .offercard, .guarantee').forEach(el=>{
+  document.querySelectorAll('section .wrap > *, .versus, .modgrid, .carousel, .bonlist, .offercard, .guarantee').forEach(el=>{
     el.classList.add('reveal'); io.observe(el);
   });
 </script>
