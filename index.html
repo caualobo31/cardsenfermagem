@@ -193,28 +193,33 @@
   .testi-role{font-size:12.5px;color:var(--ink-soft)}
 
   /* ---------- OFFER ---------- */
-  .offer{padding-top:70px;padding-bottom:70px}
-  .plans{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:920px;margin:0 auto;align-items:start}
+  .offer{padding-top:76px;padding-bottom:76px;background:#102D25}
+  .offer h2.big{color:#fff}
+  .offer .sec-sub{color:#DDE8E2}
+  .offer .microtrust{color:#BFE0D3}
+  .plans{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:920px;margin:0 auto 36px;align-items:start}
   .plan{
-    background:var(--white);border:1px solid var(--line);border-radius:22px;
-    box-shadow:0 20px 50px -30px rgba(16,36,31,.4);overflow:hidden;
+    background:var(--white);border:1px solid #E3E7E5;border-radius:22px;
+    box-shadow:0 16px 34px -22px rgba(0,0,0,.3);overflow:hidden;
     display:flex;flex-direction:column;
   }
   .plan.featured{
-    border:2px solid var(--teal);
-    box-shadow:0 30px 70px -30px rgba(16,36,31,.5);
-    transform:scale(1.03);
+    border:2px solid #11836D;
+    box-shadow:0 40px 90px -28px rgba(0,0,0,.55);
+    transform:scale(1.05);
   }
   .plan-badge{
     background:var(--teal);color:#fff;text-align:center;
-    font-family:var(--font-mono);font-size:11.5px;font-weight:700;
-    letter-spacing:.1em;text-transform:uppercase;padding:9px 12px;
+    font-family:var(--font-mono);font-size:11px;font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;padding:9px 12px;
   }
   .plan-top{padding:24px 26px 16px}
   .plan-top h3{font-size:23px}
   .plan-sub{font-size:13.5px;color:var(--ink-soft);margin-top:4px}
+  .plan-boost{font-size:13.5px;font-weight:700;color:var(--coral);margin-top:8px}
   .plan-media{width:100%;height:200px;object-fit:contain;object-position:center;display:block;background:var(--white)}
   .plan-media.sm{height:130px}
+  .plan.featured .plan-media{height:270px}
   .plan-body{padding:24px 26px 28px;display:flex;flex-direction:column}
   .stack{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:26px}
   .stack li{display:flex;justify-content:space-between;gap:14px;font-size:15px;padding-bottom:12px;border-bottom:1px dashed var(--line)}
@@ -225,12 +230,18 @@
   .anchor{font-family:var(--font-mono);color:var(--ink-soft);text-decoration:line-through;font-size:18px}
   .price{font-family:var(--font-display);font-weight:800;font-size:64px;letter-spacing:-.03em;color:var(--ink);line-height:1}
   .price small{font-size:28px;vertical-align:super;font-weight:700;margin-right:2px}
+  .price .cents{font-size:28px;font-weight:700;letter-spacing:-.02em}
   .installment{font-size:15px;color:var(--ink-soft);margin-top:8px;font-family:var(--font-mono)}
   .plan .cta{width:100%}
   .plan .cta.secondary{
     background:transparent;color:var(--ink);box-shadow:none;border:2px solid var(--line);
   }
   .plan .cta.secondary:hover{background:var(--paper);transform:translateY(-2px);box-shadow:none}
+  .plan-notice{
+    margin-top:14px;background:#FCEFD9;border:1px solid #F0DDB0;border-radius:10px;
+    padding:12px 14px;font-size:12.5px;color:var(--ink-soft);line-height:1.45;
+  }
+  .plan-note{font-size:12.5px;color:var(--ink-soft);text-align:center;margin-top:12px;line-height:1.4}
   .guarantee{
     display:flex;gap:16px;align-items:center;max-width:560px;margin:32px auto 0;
     background:var(--teal-tint);border-radius:16px;padding:20px 22px;
@@ -293,6 +304,7 @@
     .bonlist{grid-template-columns:1fr}
     .plans{grid-template-columns:1fr;gap:20px;max-width:420px}
     .plan.featured{transform:none}
+    .plan.featured .plan-media{height:220px}
   }
   @media (max-width:480px){
     .wrap{padding:0 18px}
@@ -535,42 +547,46 @@
 <section class="offer" id="oferta">
   <div class="wrap">
     <div class="center" style="margin-bottom:44px">
-      <span class="eyebrow" style="justify-content:center"></span>
-      <h2 class="big">Tudo isso, por <span class="hl">menos que um lanche</span>.</h2>
+      <h2 class="big">Escolha seu acesso e comece a revisar hoje</h2>
+      <p class="sec-sub center" style="margin-left:auto;margin-right:auto">Receba os cards no celular, baixe em PDF e use para revisar antes da prova, estágio ou plantão.</p>
     </div>
 
     <div class="plans">
       <div class="plan">
         <div class="plan-top">
           <h3>Essencial</h3>
-          <p class="plan-sub">Pra quem quer só os cards, sem enrolação.</p>
+          <p class="plan-sub">Para quem quer acessar apenas os +135 cards principais.</p>
         </div>
         <img class="plan-media sm" src="images/plano-essencial.png" alt="Plano Essencial — +135 Cards de Enfermagem">
         <div class="plan-body">
           <div class="priceblock">
             <div class="anchor">de R$ 97</div>
-            <div class="price"><small>R$</small>19</div>
-            <div class="installment">à vista ou 3x de R$ 6,84</div>
+            <div class="price"><small>R$</small>19<span class="cents">,90</span></div>
+            <div class="installment">à vista ou em até 3x</div>
           </div>
           <ul class="stack">
             <li><span class="n"><span class="ck">✓</span> +135 Cards de Enfermagem em PDF</span></li>
+            <li><span class="n"><span class="ck">✓</span> Acesso imediato no celular</span></li>
+            <li><span class="n"><span class="ck">✓</span> Pronto para baixar e imprimir</span></li>
           </ul>
-          <a href="#" class="cta secondary">Quero o Essencial <span class="arrow">→</span></a>
+          <a href="#" class="cta secondary">Quero só os cards <span class="arrow">→</span></a>
+          <p class="plan-notice">Melhor escolha abaixo: por apenas R$18 a mais, você leva também todos os bônus do plano completo.</p>
         </div>
       </div>
 
       <div class="plan featured">
-        <div class="plan-badge">Mais escolhido</div>
+        <div class="plan-badge">Melhor custo-benefício</div>
         <div class="plan-top">
           <h3>Completo</h3>
-          <p class="plan-sub">Os cards + todos os bônus, pra não faltar nada.</p>
+          <p class="plan-sub">Cards + todos os bônus para estudar com mais clareza e organização.</p>
+          <p class="plan-boost">Por apenas R$18 a mais que o Essencial, você leva todos os bônus.</p>
         </div>
         <img class="plan-media" src="images/plano-completo.png" alt="Plano Completo — +135 Cards + 4 Bônus">
         <div class="plan-body">
           <div class="priceblock">
             <div class="anchor">de R$ 147</div>
-            <div class="price"><small>R$</small>27</div>
-            <div class="installment">à vista ou 3x de R$ 9,66</div>
+            <div class="price"><small>R$</small>37<span class="cents">,90</span></div>
+            <div class="installment">à vista ou em até 3x</div>
           </div>
           <ul class="stack">
             <li><span class="n"><span class="ck">✓</span> +135 Cards de Enfermagem em PDF</span></li>
@@ -578,12 +594,14 @@
             <li><span class="n"><span class="ck">✓</span> 100 Medicamentos Mais Comuns</span></li>
             <li><span class="n"><span class="ck">✓</span> Termos Técnicos de Enfermagem</span></li>
             <li><span class="n"><span class="ck">✓</span> Mapas Mentais</span></li>
+            <li><span class="n"><span class="ck">✓</span> Acesso imediato no celular</span></li>
           </ul>
-          <a href="#" class="cta">Quero o Completo <span class="arrow">→</span></a>
+          <a href="#" class="cta">Quero o completo com bônus <span class="arrow">→</span></a>
+          <p class="plan-note">Mais indicado para quem quer revisar sem ficar procurando conteúdo em vários lugares.</p>
         </div>
       </div>
     </div>
-    <p class="microtrust center" style="text-align:center">Compra segura · Acesso imediato após o pagamento</p>
+    <p class="microtrust center" style="text-align:center">Compra segura · Acesso imediato · PDF no celular · Garantia de 15 dias</p>
 
     <div class="guarantee">
       <div class="seal">7 DIAS</div>
