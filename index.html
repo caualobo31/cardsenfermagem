@@ -232,11 +232,30 @@
   .price small{font-size:34px;vertical-align:super;font-weight:700;margin-right:2px}
   .price .cents{font-size:34px;font-weight:700;letter-spacing:-.02em}
   .installment{font-size:15px;color:var(--ink-soft);margin-top:8px;font-family:var(--font-body)}
+  .savings{font-weight:700;color:var(--coral);font-size:14.5px;margin-top:10px}
   .plan .cta{width:100%}
   .plan .cta.secondary{
     background:transparent;color:var(--ink);box-shadow:none;border:2px solid var(--line);
   }
   .plan .cta.secondary:hover{background:var(--paper);transform:translateY(-2px);box-shadow:none}
+  .plan-divider{border:none;border-top:1px solid var(--line);margin:24px 0}
+  .stack.premium{margin-bottom:0}
+  .stack.premium li{border-bottom:none;padding-bottom:0}
+  .stack.premium .n{align-items:center}
+  .stack.premium .ck{
+    flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;
+    display:grid;place-items:center;font-size:11px;font-weight:800;
+  }
+  .bonus-label{font-family:var(--font-mono);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px;display:block}
+  .stack-bonus{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .stack-bonus li{display:flex;gap:12px;align-items:center;font-size:14.5px;color:var(--ink)}
+  .bmini{
+    flex-shrink:0;width:26px;height:26px;border-radius:8px;background:var(--teal);color:#fff;
+    display:grid;place-items:center;font-family:var(--font-mono);font-weight:700;font-size:11px;
+  }
+  .bmini.c2{background:var(--coral)}
+  .bmini.c3{background:var(--amber)}
+  .bmini.c4{background:var(--violet)}
   .plan-notice{
     margin-top:14px;background:#FCEFD9;border:1px solid #F0DDB0;border-radius:10px;
     padding:12px 14px;font-size:12.5px;color:var(--ink-soft);line-height:1.45;
@@ -579,6 +598,7 @@
         <div class="plan-top">
           <h3>Completo</h3>
           <p class="plan-sub">Cards + todos os bônus para estudar com mais clareza e organização.</p>
+          <p class="plan-boost">Por apenas R$18 a mais que o Essencial, você leva todos os bônus.</p>
         </div>
         <img class="plan-media" src="images/plano-completo.png" alt="Plano Completo — +135 Cards + 4 Bônus">
         <div class="plan-body">
@@ -586,17 +606,30 @@
             <div class="anchor">de R$ 147</div>
             <div class="price"><small>R$</small>37<span class="cents">,90</span></div>
             <div class="installment">à vista ou em até 3x</div>
+            <div class="savings">Você economiza R$ 109,10</div>
           </div>
-          <ul class="stack">
-            <li><span class="n"><span class="ck">✓</span> +135 Cards de Enfermagem em PDF</span></li>
-            <li><span class="n"><span class="ck">✓</span> Cards Extras</span></li>
-            <li><span class="n"><span class="ck">✓</span> 100 Medicamentos Mais Comuns</span></li>
-            <li><span class="n"><span class="ck">✓</span> Termos Técnicos de Enfermagem</span></li>
-            <li><span class="n"><span class="ck">✓</span> Mapas Mentais</span></li>
-            <li><span class="n"><span class="ck">✓</span> Acesso imediato no celular</span></li>
-          </ul>
           <a href="#" class="cta">Quero o completo com bônus <span class="arrow">→</span></a>
           <p class="plan-note">Mais indicado para quem quer revisar sem ficar procurando conteúdo em vários lugares.</p>
+
+          <hr class="plan-divider">
+
+          <ul class="stack premium">
+            <li><span class="n"><span class="ck">✓</span> +135 Cards de Enfermagem em PDF</span></li>
+            <li><span class="n"><span class="ck">✓</span> Organizado por módulo e por tema</span></li>
+            <li><span class="n"><span class="ck">✓</span> Acesso imediato no celular</span></li>
+            <li><span class="n"><span class="ck">✓</span> Acesso vitalício, sem mensalidade</span></li>
+            <li><span class="n"><span class="ck">✓</span> Garantia de 15 dias</span></li>
+          </ul>
+
+          <hr class="plan-divider">
+
+          <span class="bonus-label">Bônus inclusos</span>
+          <ul class="stack-bonus">
+            <li><span class="bmini">01</span> Bônus 1: Cards Extras</li>
+            <li><span class="bmini c2">02</span> Bônus 2: 100 Medicamentos Mais Comuns</li>
+            <li><span class="bmini c3">03</span> Bônus 3: Termos Técnicos de Enfermagem</li>
+            <li><span class="bmini c4">04</span> Bônus 4: Mapas Mentais</li>
+          </ul>
         </div>
       </div>
     </div>
